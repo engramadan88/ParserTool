@@ -1,4 +1,4 @@
-FROM  engramadan/parse-image
+FROM  engramadan/parsertool-base:latest
 WORKDIR /app
 COPY . /app
 EXPOSE 8080
