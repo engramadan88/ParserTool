@@ -9,6 +9,7 @@ services:
     shm_size: 2GB 
     environment:
       - ORACLE_PWD=sys
+      - DB_PASSWD=sys
   parser: 
     image: parse-image:latest 
     ports:
