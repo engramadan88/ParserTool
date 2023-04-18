@@ -1,7 +1,10 @@
 version: "3" 
 services:
-  InfraDB:
-    image: container-registry.oracle.com/database/enterprise:21.3.0.0
+  db:
+    build: 
+      context: .
+      target: db
+    container_name: DockerDB
     ports:
       - 1521:1521 
       - 5500:5500 
@@ -9,8 +12,11 @@ services:
       - ORACLE_SID=DockerDB 
       - ORACLE_PDB=DockerPDB 
       - ORACLE_PWD=Welcome1
-  parser: 
-    image: parsertool
+  app: 
+    build: 
+      context: .
+      target: app
+    container_name: DockerApp
     ports:
       - 8080:8080
     environment:
@@ -18,4 +24,4 @@ services:
       - DB_USERNAME=parser
       - DB_PASSWORD=parser
     depends_on:
-      - InfraDB
+      - db
