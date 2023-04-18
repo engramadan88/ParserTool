@@ -1,6 +1,7 @@
 alter session set "_oracle_script"=true;
 create user parser identified by parser;
 grant dba to parser;
+/
 create table parser.usage
 (
 id number not null,
